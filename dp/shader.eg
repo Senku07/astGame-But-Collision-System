@@ -1,0 +1,23 @@
+const char* vertexShaderSource = R"(
+    #version 330 core 
+    layout (location = 0) in vec2 Pos;
+
+    uniform mat4 Proj;
+    uniform mat4 Model;
+
+    void main()
+    {
+        gl_Position  = Proj * Model * vec4(Pos,0.0f,1.0f);
+    }
+
+)";
+
+const char* fragmentShaderSource = R"(
+    #version 330 core
+    out vec4 Color;
+    uniform vec3 ObjColor;
+    void main()
+    {
+    Color =  vec4(ObjColor,1);
+    };
+)";
